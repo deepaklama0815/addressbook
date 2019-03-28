@@ -21,8 +21,8 @@ node('maven'){
    stage('deployment'){
        //sshagent(['deployusr']) {
     // some block
-        sh "$mvnhome/bin/mvn clean install"
-        cp  /home/ec2-user/workspace/pipeline2/addressbook_main/target*.war /opt/tomcat/webapp
+     //   sh "$mvnhome/bin/mvn clean install"
+     //   cp  /home/ec2-user/workspace/pipeline2/addressbook_main/target*.war /opt/tomcat/webapp
 
 
        
