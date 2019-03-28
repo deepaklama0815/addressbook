@@ -22,7 +22,7 @@ node('maven'){
        //sshagent(['deployusr']) {
     // some block
      //   sh "$mvnhome/bin/mvn clean install"
-          sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/warpipeline/addressbook_main/target*.war ec2-user@34.239.116.240:/home/ec2-user/tomcat9/webapps"
+          sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/warpipeline/addressbook_main/target/*.war ec2-user@34.239.116.240:/home/ec2-user/tomcat9/webapps"
 
 
        
