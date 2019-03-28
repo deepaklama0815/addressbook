@@ -12,7 +12,7 @@ node('maven'){
          sh "$mvnhome/bin/mvn clean test surefire-report:report-only"
         
     }
-    stage ('package'){
+    stage ('packaging'){
         sh "$mvnhome/bin/mvn clean package -DskipTests=true"
     }
     stage('archieving artifacts'){
