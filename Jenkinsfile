@@ -18,4 +18,9 @@ stage('archiving'){
 stage('publishing html report'){
     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
 }
+stage('deployment'){
+    sshagent(['new-machine']) {
+    sh "scp -o StrictHostKeyChecking=no target/my-app-1-RELEASE.jar ec2-user@54.236.4.88:/home/ec2-user/"
+}
+}
 }
