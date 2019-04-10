@@ -6,7 +6,6 @@ stage('checkout'){
 }
 stage('test'){
     sh "${mvnhome}/bin/mvn clean test"
-
 }
 stage('package'){
     sh "${mvnhome}/bin/mvn package"
