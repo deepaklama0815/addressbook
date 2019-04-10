@@ -14,4 +14,7 @@ stage('package'){
 stage('archiving'){
     archiveArtifacts allowEmptyArchive: true, artifacts: 'target/surefire-reports/*'
 }
+stage('publishing html report'){
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: ''])
+}
 }
