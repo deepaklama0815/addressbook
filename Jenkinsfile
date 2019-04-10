@@ -6,6 +6,7 @@ stage('checkout'){
 }
 stage('test'){
     sh "${mvnhome}/bin/mvn clean compile"
+    sh "${mvnhome}/bin/mvn clean test surefire-report:report-only"
     junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 }
 stage('package'){
