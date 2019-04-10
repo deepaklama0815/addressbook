@@ -12,4 +12,7 @@ stage('test'){
 stage('package'){
     sh "${mvnhome}/bin/mvn package"
 }
+stage('archiving'){
+    archiveArtifacts 'target/surefire-reports/*'
+}
 }
