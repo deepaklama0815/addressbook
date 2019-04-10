@@ -20,7 +20,7 @@ stage('publishing html report'){
 }
 stage('deployment'){
     sshagent(['new-machine']) {
-    sh "scp -o StrictHostKeyChecking=no target/my-app-1-RELEASE.jar ec2-user@54.236.4.88:/home/ec2-user/"
+    sh "scp -o StrictHostKeyChecking=no /home/ec2-user/workspace/addressbook-pipeline/addressbook_main/target/addressbook.war ec2-user@54.236.4.88:/home/ec2-user/"
 }
 }
 }
