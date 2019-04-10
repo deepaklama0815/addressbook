@@ -6,13 +6,12 @@ stage('checkout'){
 }
 stage('test'){
     sh "${mvnhome}/bin/mvn clean compile"
-    junit 'target/surefire-reports/*.xml'
-
+    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
 }
 stage('package'){
-    sh "${mvnhome}/bin/mvn package"
+    sh "${mvnhome}/bin/mvn package -Dskiptest"
 }
 stage('archiving'){
-    archiveArtifacts 'target/surefire-reports/*'
+    archiveArtifacts allowEmptyArchive: true, artifacts: 'target/surefire-reports/*'
 }
 }
